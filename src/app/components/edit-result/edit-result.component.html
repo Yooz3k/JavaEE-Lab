@@ -1,0 +1,45 @@
+<form #resultForm="ngForm" *ngIf="result">
+  <table class="table table-striped">
+    <tr>
+      <td>Miejsce:</td>
+      <td>
+        <input type="text" name="pos" class="form-control" [(ngModel)]="result.pos">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Strata do lidera:</td>
+      <td>
+        <input type="text" name="gap" class="form-control" [(ngModel)]="result.gapToLeader">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Pit stopy:</td>
+      <td>
+        <input type="text" name="pits" class="form-control" [(ngModel)]="result.pitStops">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Ukończył?:</td>
+      <td>
+        <input type="checkbox" name="didFinish" class="form-control" [(ngModel)]="result.didFinish">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Tor:</td>
+      <td>
+        <select [(ngModel)]="result.circuit" name="circuits" class="form-control" [compareWith]="compareResults">
+          <option *ngFor="let circuit of availableCircuits" [ngValue]="circuit">
+            {{circuit.name}}
+          </option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <button type="button" class="btn btn-primary" (click)="save()">Zapisz</button>
+  <button type="button" class="btn btn-default" routerLink="/results">Powrót</button>
+</form>

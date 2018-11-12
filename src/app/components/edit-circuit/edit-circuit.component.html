@@ -1,0 +1,34 @@
+<form #resultForm="ngForm" *ngIf="circuit">
+  <table class="table table-striped">
+    <tr>
+      <td>Nazwa:</td>
+      <td>
+        <input type="text" name="name" class="form-control" [(ngModel)]="circuit.name">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Kraj:</td>
+      <td>
+        <input type="text" name="country" class="form-control" [(ngModel)]="circuit.country">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Wyścig uliczny:</td>
+      <td>
+        <input type="checkbox" name="hostsStreetRace" class="form-control" [(ngModel)]="circuit.hostsStreetRace">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Wyścig nocny:</td>
+      <td>
+        <input type="checkbox" name="hostsNightRace" class="form-control" [(ngModel)]="circuit.hostsNightRace">
+      </td>
+    </tr>
+  </table>
+
+  <button type="button" class="btn btn-primary" (click)="save()">Zapisz</button>
+  <button type="button" class="btn btn-default" routerLink="/circuits">Powrót</button>
+</form>

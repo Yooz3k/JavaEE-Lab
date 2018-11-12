@@ -1,0 +1,28 @@
+<table class="table table-striped" *ngIf="result">
+  <tr>
+    <td>Miejsce</td>
+    <td>{{result.pos}}</td>
+  </tr>
+
+  <tr>
+    <td>Strata do lidera</td>
+    <td>{{result.gapToLeader}}</td>
+  </tr>
+
+  <tr>
+    <td>Pit stopy</td>
+    <td>{{result.pitStops}}</td>
+  </tr>
+
+  <tr>
+    <td>Czy ukończył?</td>
+    <td>{{result.didFinish ? "tak" : "nie"}}</td>
+  </tr>
+
+  <tr>
+    <td>Tor</td>
+    <td>{{result.circuit.country}}, {{result.circuit.name}}</td>
+  </tr>
+</table>
+
+<button class="btn btn-default" routerLink="/results">Powrót</button>

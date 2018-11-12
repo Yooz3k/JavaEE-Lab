@@ -1,0 +1,23 @@
+<table class="table table-striped" *ngIf="circuit">
+  <tr>
+    <td>Nazwa toru</td>
+    <td>{{circuit.name}}</td>
+  </tr>
+
+  <tr>
+    <td>Kraj</td>
+    <td>{{circuit.country}}</td>
+  </tr>
+
+  <tr>
+    <td>Wyścig uliczny?</td>
+    <td>{{circuit.hostsStreetRace ? "tak" : "nie"}}</td>
+  </tr>
+
+  <tr>
+    <td>Wyścig nocny?</td>
+    <td>{{circuit.hostsNightRace ? "tak" : "nie"}}</td>
+  </tr>
+</table>
+
+<button class="btn btn-default" routerLink="/circuits">Powrót</button>

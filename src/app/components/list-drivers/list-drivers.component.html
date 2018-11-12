@@ -1,0 +1,84 @@
+<table class="table table-striped table-hover">
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Imię i nazwisko
+    </th>
+
+    <th>
+      Narodowość
+    </th>
+
+    <th>
+      Zespół
+    </th>
+
+    <th>
+      Data urodzenia
+    </th>
+
+    <th>
+      Mistrz świata?
+    </th>
+
+    <th>
+      Wyniki
+    </th>
+
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let driver of drivers | async">
+    <td>
+      {{driver.id}}
+    </td>
+
+    <td>
+      {{driver.firstName}} {{driver.secondName}}
+    </td>
+
+    <td>
+      {{driver.nationality}}
+    </td>
+
+    <td>
+      {{driver.team}}
+    </td>
+
+    <td>
+      {{driver.dateOfBirth | date: 'yyyy-MM-dd'}}
+    </td>
+
+    <td>
+      {{driver.wasWorldChampion ? "tak" : "nie"}}
+    </td>
+
+    <td>
+      <table>
+        <tr *ngFor="let result of driver.results">
+          <td>
+            {{result.circuit.country}}, {{result.pos}}.
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td>
+      <button class="btn btn-default" [routerLink]="[driver.id]">Pokaż</button>
+    </td>
+
+    <td>
+      <button class="btn btn-default" [routerLink]="[driver.id, 'edit']">Edytuj</button>
+    </td>
+
+    <td>
+      <button class="btn btn-danger" (click)="remove(driver)">Usuń</button>
+    </td>
+  </tr>
+</table>
+
+<button class="btn btn-primary" routerLink="/drivers/new">Nowy kierowca</button>

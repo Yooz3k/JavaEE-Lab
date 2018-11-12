@@ -1,0 +1,39 @@
+<table class="table table-striped" *ngIf="driver">
+  <tr>
+    <td>Imię</td>
+    <td>{{driver.firstName}} {{driver.secondName}}</td>
+  </tr>
+
+  <tr>
+    <td>Narodowość</td>
+    <td>{{driver.nationality}}</td>
+  </tr>
+
+  <tr>
+    <td>Zespół</td>
+    <td>{{driver.team}}</td>
+  </tr>
+
+  <tr>
+    <td>Data urodzenia</td>
+    <td>{{driver.dateOfBirth | date: 'yyyy-MM-dd'}}</td>
+  </tr>
+
+  <tr>
+    <td>Czy został mistrzem świata?</td>
+    <td>{{driver.wasWorldChampion ? "tak" : "nie"}}</td>
+  </tr>
+
+  <tr>
+    <td>Wyniki</td>
+    <table>
+      <tr *ngFor="let result of driver.results">
+        <td>
+          {{result.circuit.country}}, {{result.pos}}.
+        </td>
+      </tr>
+    </table>
+  </tr>
+</table>
+
+<button class="btn btn-default" routerLink="/drivers">Powrót</button>
