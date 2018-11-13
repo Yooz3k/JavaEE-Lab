@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Driver} from '../model/driver';
 import {Result} from '../model/result';
 import {Circuit} from "../model/circuit";
+import {ResultsDTO} from "../model/resultsDTO";
 
 @Injectable()
 export class ResultsService {
@@ -33,8 +34,15 @@ export class ResultsService {
     }
   }
 
-  findAllResults(): Observable<Result[]> {
-    return this.http.get<Result[]>(this._urlPrefix + 'api/results');
+  findAllResults(): Observable<ResultsDTO> {
+    return this.http.get<ResultsDTO>(this._urlPrefix + 'api/results');
+  }
+
+  findResults(resourceUri: string = this._urlPrefix + 'api/results?limit=10&offset=0'): Observable<ResultsDTO> {
+    let results: Observable<ResultsDTO> = this.http.get<ResultsDTO>(resourceUri);
+
+    return results;
+    // return results.subscribe(resultsList => results.)
   }
 
   findResult(id: number): Observable<Result> {

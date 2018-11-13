@@ -29,7 +29,7 @@ export class EditDriverComponent implements OnInit {
     }
 
     this.resultsService.findAllResults()
-      .subscribe(results => this.availableResults = results);
+      .subscribe(results => this.availableResults = results.results);
   }
 
   save() {

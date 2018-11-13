@@ -1,4 +1,5 @@
 <table class="table table-striped table-hover">
+
   <tr>
     <th>
       ID
@@ -29,43 +30,45 @@
     <th></th>
   </tr>
 
-  <tr *ngFor="let result of results | async">
-    <td>
-      {{result.id}}
-    </td>
+    <tr *ngFor="let result of results.results">
+      <td>
+        {{result.id}}
+      </td>
 
-    <td>
-      {{result.pos}}
-    </td>
+      <td>
+        {{result.pos}}
+      </td>
 
-    <td>
-      {{result.gapToLeader}}
-    </td>
+      <td>
+        {{result.gapToLeader}}
+      </td>
 
-    <td>
-      {{result.pitStops}}
-    </td>
+      <td>
+        {{result.pitStops}}
+      </td>
 
-    <td>
-      {{result.didFinish ? "tak" : "nie"}}
-    </td>
+      <td>
+        {{result.didFinish ? "tak" : "nie"}}
+      </td>
 
-    <td>
-      {{result.circuit.country}}, {{result.circuit.name}}
-    </td>
+      <td>
+        {{result.circuit.country}}, {{result.circuit.name}}
+      </td>
 
-    <td>
-      <button class="btn btn-default" [routerLink]="[result.id]">Pokaż</button>
-    </td>
+      <td>
+        <button class="btn btn-default" [routerLink]="[result.id]">Pokaż</button>
+      </td>
 
-    <td>
-      <button class="btn btn-default" [routerLink]="[result.id, 'edit']">Edytuj</button>
-    </td>
+      <td>
+        <button class="btn btn-default" [routerLink]="[result.id, 'edit']">Edytuj</button>
+      </td>
 
-    <td>
-      <button class="btn btn-danger" (click)="remove(result)">Usuń</button>
-    </td>
-  </tr>
+      <td>
+        <button class="btn btn-danger" (click)="remove(result)">Usuń</button>
+      </td>
+    </tr>
 </table>
 
 <button class="btn btn-primary" routerLink="/results/new">Nowy wynik</button>
+<button class="btn btn-default" (click)="getPreviousPage()"><-</button>
+<button class="btn btn-default" (click)="getNextPage()">-></button>
